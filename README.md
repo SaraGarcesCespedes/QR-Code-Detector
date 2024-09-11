@@ -2,8 +2,9 @@
 
 In this repository you can find Jupyter Notebooks and Python scripts for training and deploying a Machine Learning model to locate QR codes in an image.
 
+To perform the task of detecting QR codes in an image, a personalized **YOLOv8** model was trained. **YOLOv8** is a real-time object detection and image segmentation model developed by **Ultralytics**. The main advantages of using this model are its high accuracy rate, that it can be trained on a single GPU, and that it comes with a Python package, making the training process more intuitive.
 
-To perform the task of detecting QR codes in an image, the **YOLOv8** model was trained. This is a real-time object detection and image segmentation model. For model training, a custom dataset was used, containing images of QR codes with their respective labels indicating their position. This dataset was downloaded from the **Roboflow** platform and is composed as follows:
+For model training, a custom dataset was used containing images of QR codes with their respective labels indicating their position. The dataset can be found in the following link: *(https://universe.roboflow.com/qr-lmsul/qr-code-detection-jz2e3/dataset/2)*. This dataset was downloaded from the **Roboflow** platform and is composed as follows:
 
 * Train data: 1,083 images
 * Validation data: 309 images
