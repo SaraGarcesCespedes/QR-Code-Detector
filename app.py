@@ -2,18 +2,19 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
+from dash import dash_table
 import os
 import pandas as pd
 import io
 import base64
-from zipfile import ZipFile
 from PIL import Image
-from model import Detection, crop_image, preprocess_image
-from dash import dash_table
 import numpy as np
 import plotly.express as px
 from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
+#from model import Detection, crop_image, preprocess_image
+from model import QRdetection
+
 
 
 
@@ -185,7 +186,7 @@ def prediction(content):
     content_decoded = base64.b64decode(content_string)
     # Use BytesIO to handle the decoded content
     image = io.BytesIO(content_decoded)
-    table_results = Detection(image)
+    table_results = QRdetection(image).Detection()
 
     
     table_results_final = table_results[["QR Code", "X1", "Y1", "X2", "Y2", "QR URL"]]
@@ -209,7 +210,7 @@ def qr_image(content):
         # Use BytesIO to handle the decoded content
         image = io.BytesIO(content_decoded)
         img = Image.open(image)
-        test_image = preprocess_image(img)
+        test_image = QRdetection(img).preprocess_image()
         img = np.array(test_image)
     except OSError:
         raise dash.exceptions.PreventUpdate
@@ -235,17 +236,16 @@ def qr_image(content, data):
         # Use BytesIO to handle the decoded content
         image = io.BytesIO(content_decoded)
         img = Image.open(image)
-        test_image = preprocess_image(img)
+        test_image = QRdetection(img).preprocess_image()
         img = np.array(test_image)
     except OSError:
         raise dash.exceptions.PreventUpdate
-    img_crop = crop_image(img, data)
+    img_crop = QRdetection(img).crop_image(data)
 
     if img_crop is None:
         print("No image available")
     else:
-        n_images = len(img_crop)
-        fig = make_subplots(rows=2, cols=n_images)
+        fig = make_subplots(rows=2, cols=5)
 
         for n, image in enumerate(img_crop):
             fig.add_trace(px.imshow(image).data[0], row=int(n/5)+1, col=n%5+1)

@@ -1,0 +1,9 @@
+pandas==2.2.2
+plotly-express==0.4.1
+pillow==10.4.0
+dash==2.18.0
+numpy==1.26.4
+dash_bootstrap_components==1.6.0
+matplotlib==3.9.2
+ultralytics==8.2.88
+opencv-python==4.10.0.84
