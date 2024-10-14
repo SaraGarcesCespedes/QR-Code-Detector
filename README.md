@@ -30,7 +30,7 @@ Currently, the app runs locally. To use it, follow these steps:
 4. Install the pyzbar library following the instructions described in this README: https://github.com/NaturalHistoryMuseum/pyzbar. If you are using Windows, you may need **Visual C++ Redistributable Packages for Visual Studio 2013** for the library to work correctly.
 5. Run the *app.py* script.
 
-The application allows users to upload an image in *.png*, *.jpg*, *.jpeg* format. Subsequently, a box will be displayed containing the coordinates indicating the location of the detected QR code(s) in the image and their respective URLs. If no QR code is detected in the image, the following message will be displayed: **No QR Code Detected**. Additionally, a process was included in which, in which the image is cropped using the coordinates provided by the model and displayed in the application.
+The application allows users to upload an image in *.png*, *.jpg*, *.jpeg* format. Subsequently, a box will be displayed containing the coordinates indicating the location of the detected QR code(s) in the image and their respective URLs. If no QR code is detected in the image, the following message will be displayed: **No QR Code Detected**. Additionally, a process was included in which the image is cropped using the coordinates provided by the model and the QR code is displayed in the application.
 
 
 
