@@ -12,7 +12,7 @@ For model training, a custom dataset was used containing images of QR codes with
 
 This process was carried out using **Collab** Pro and Python 3 with a Google Compute Engine backend (GPU). In the notebook *Train QR detection model.ipynb*, you can visualize the training process of the YOLOv8 model and the validation of the performance metrics obtained on the training, validation, and test datasets.
 
-The selected model was the one that achieved the best performance metrics during the training process. The following are the final metrics of this model:
+The selected model was the one that achieved the best performance metrics during the training process. The following are the final metrics of this model in the validation dataset:
 
 | Precision | mAP50 | mAP50-95 |
 |-----------|-------|----------|
